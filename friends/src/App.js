@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, Redirect, withRouter } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import FriendList from './components/FriendList';
 import NewFriend from './components/NewFriend';
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <nav className="nav">
@@ -16,11 +16,20 @@ function App() {
 
       <main>
         <Route exact path='/' component={LoginForm} />
-        <Route path='/friendList' component={FriendList} />
-        <Route path='/newFriend' component={NewFriend} />
+        <Route path='/friendList' render={props => withAuthCheck(FriendList, props) } />
+        <Route path='/newFriend' render={props => withAuthCheck(NewFriend, props) } />
       </main>
     </div>
   );
 }
 
-export default App;
+function withAuthCheck (Component, props) {
+  if (localStorage.getItem('token')) {
+    return <Component {...props} />
+  }
+  else {
+    return <Redirect to='/' />;
+  }
+}
+
+export default withRouter(App);
