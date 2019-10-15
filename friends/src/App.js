@@ -11,7 +11,7 @@ function App() {
       <nav className="nav">
         <NavLink exact to='/'>Form</NavLink>
         <NavLink to='/friendList'>Friends</NavLink>
-        <NavLink to='newFriend' >NEw Friend</NavLink>
+        <NavLink to='newFriend' >New Friend</NavLink>
       </nav>
 
       <main>

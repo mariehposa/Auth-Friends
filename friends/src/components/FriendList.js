@@ -16,11 +16,26 @@ export default function FriendList () {
                 alert(err.response.data.error)
             })
     }, [])
+
+    function deleteFriend (id) {
+        AxiosAuth().delete(`http://localhost:5000/api/friends/${id}`)
+        .then(res => {
+            console.log(res.data)
+            // const remainingFriends = friends.filter(friend => friend.id !== id)
+            // setFriends(remainingFriends)
+            setFriends(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+   
     return(
         <div>
             {
                 
-                friends.map(friend => <FriendCard key={friend.id} friend={friend} /> )
+                friends.map(friend => <FriendCard key={friend.id} friend={friend} deleteFriend={deleteFriend} editFriend={editFriend}/> )
             }
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import AxiosAuth from '../axios/AxiosAuth'
+import AxiosAuth from '../axios/AxiosAuth';
 
 const initialFriendValues = {
     name: '',
@@ -19,7 +19,6 @@ export default function NewFriend (props) {
         })
             .then(res => {
                 console.log(res);
-                // localStorage.setItem('token', res.data.payload);
                 props.history.push('/friendList');
             })
             .catch(err => {
