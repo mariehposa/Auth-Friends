@@ -3,6 +3,7 @@ import './App.css';
 import { Route, NavLink } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import FriendList from './components/FriendList';
+import NewFRiend from './components/NewFriend';
 
 function App() {
   return (
@@ -10,11 +11,13 @@ function App() {
       <nav className="nav">
         <NavLink exact to='/'>Form</NavLink>
         <NavLink to='/friendList'>Friends</NavLink>
+        <NavLink to='newFriend' >NEw Friend</NavLink>
       </nav>
 
       <main>
         <Route exact path='/' component={LoginForm} />
         <Route path='/friendList' component={FriendList} />
+        <Route path='/newFriend' component={NewFRiend} />
       </main>
     </div>
   );

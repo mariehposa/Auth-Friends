@@ -19,6 +19,7 @@ export default function FriendList () {
     return(
         <div>
             {
+                
                 friends.map(friend => <FriendCard key={friend.id} friend={friend} /> )
             }
         </div>
