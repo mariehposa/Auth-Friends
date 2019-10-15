@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
 
-export default function LoginForm () {
+export default function LoginForm (props) {
     const usernameRef = useRef();
     const passwordRef = useRef();
 
@@ -12,7 +12,8 @@ export default function LoginForm () {
         })
             .then(res => {
                 //console.log(res);
-                localStorage.setItem('token', res.data.payload)
+                localStorage.setItem('token', res.data.payload);
+                props.history.push('/friendList');
             })
             .catch(err => {
                 //console.log(err.response.data.error)
@@ -26,7 +27,7 @@ export default function LoginForm () {
             <br />
             password <input type="text" placeholder="Enter password" ref={passwordRef} />
             <br />
-            <button onClick = {submit}>Submit</button>
+            <button onClick={submit}>Submit</button>
         </div>
     );
 }
