@@ -3,7 +3,7 @@ import './App.css';
 import { Route, NavLink } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import FriendList from './components/FriendList';
-import NewFRiend from './components/NewFriend';
+import NewFriend from './components/NewFriend';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <main>
         <Route exact path='/' component={LoginForm} />
         <Route path='/friendList' component={FriendList} />
-        <Route path='/newFriend' component={NewFRiend} />
+        <Route path='/newFriend' component={NewFriend} />
       </main>
     </div>
   );
