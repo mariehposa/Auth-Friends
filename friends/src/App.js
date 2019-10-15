@@ -1,11 +1,19 @@
 import React from 'react';
 import './App.css';
-import LoginForm from './components/LoginForm'
+import { Route, NavLink } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+
 
 function App() {
   return (
     <div className="App">
-      <LoginForm />
+      <nav className="nav">
+        <NavLink exact to='/'>Form</NavLink>
+      </nav>
+
+      <main>
+        <Route exact path='/' component={LoginForm} />
+      </main>
     </div>
   );
 }
