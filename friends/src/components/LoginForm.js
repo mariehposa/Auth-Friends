@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
+import { LoginStyle, InputStyle, SubmitButton } from './Styles';
 
 export default function LoginForm (props) {
     const usernameRef = useRef();
@@ -22,12 +23,12 @@ export default function LoginForm (props) {
     }
 
     return (
-        <div>
-            username <input type="text" placeholder="Enter username" ref={usernameRef}/>
+        <LoginStyle>
+            username <InputStyle type="text" placeholder="Enter username" ref={usernameRef}/>
             <br />
-            password <input type="text" placeholder="Enter password" ref={passwordRef} />
+            password <InputStyle type="text" placeholder="Enter password" ref={passwordRef} />
             <br />
-            <button onClick={submit}>Submit</button>
-        </div>
+            <SubmitButton onClick={submit}>Submit</SubmitButton>
+        </LoginStyle>
     );
 }

@@ -1,6 +1,7 @@
 import React,{ useState, useEffect } from 'react';
 import AxiosAuth from '../axios/AxiosAuth';
 import FriendCard from './FriendCard'
+import { ParentStyle } from './Styles';
 
 export default function FriendList () {
     const [ friends, setFriends ] = useState([])
@@ -41,10 +42,10 @@ export default function FriendList () {
     }
    
     return(
-        <div>
+        <ParentStyle>
             { 
                 friends.map(friend => <FriendCard key={friend.id} friend={friend} deleteFriend={deleteFriend} editFriend={editFriend}/> )
             }
-        </div>
+        </ParentStyle>
     );
 }

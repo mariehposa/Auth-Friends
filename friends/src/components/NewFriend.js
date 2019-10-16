@@ -1,6 +1,7 @@
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik } from 'formik';
 import AxiosAuth from '../axios/AxiosAuth';
+import { FieldStyle, FormStyle, SubmitButton } from './Styles';
 
 const initialFriendValues = {
     name: '',
@@ -42,18 +43,18 @@ function FriendForm ({onAdd}) {
             onSubmit={onAdd}
             render = { props => {
                 return (
-                    <Form>
+                    <FormStyle>
                         <label>Name</label>
-                        <Field name="name" type="text" placeholder="Enter name"/>
+                        <FieldStyle name="name" type="text" placeholder="Enter name"/>
                         <br />
                         <label>Age</label>
-                        <Field name="age" type="text" placeholder="Enter Age"/>
+                        <FieldStyle name="age" type="text" placeholder="Enter Age"/>
                         <br />
                         <label>Email</label>
-                        <Field name="email" type="text" placeholder="Enter email"/>
+                        <FieldStyle name="email" type="text" placeholder="Enter email"/>
                         <br />
-                        <button type="submit">Add Friend</button>
-                    </Form>
+                        <SubmitButton type="submit">Add Friend</SubmitButton>
+                    </FormStyle>
                 )
             }}
         />
